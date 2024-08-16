@@ -1,0 +1,72 @@
+{% extends 'appcoder/base.html' %}
+
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>
+        {% block title %}    
+            S&H/ CreateStudent
+        {% endblock %}
+    </title>
+</head>
+
+{% block content %}
+<body class="sub_page"> 
+    <!-- search section -->
+    <section class="price_section layout_padding"; style="background-color: #FFFFFF;">
+        <div class="container">
+        <div class="heading_container heading_center">
+            <h1>
+                DataBase
+            </h1>
+                <!-- Crear de Cursos -->
+                    <h2 style="margin-top: 90px;">
+                        Create Student
+                    </h2>
+                    <h2 style="margin-top: 100px;">
+                    </h2>
+                    <form method="GET" action="{% url 'crearestudiante' %}">
+                        <input type="text" name="nombre_estudiante" placeholder="Enter student name" value="{{ request.GET.nombre_estudiante }}">
+                        <input type="text" name="apellido_estudiante" placeholder="Enter student surname" value="{{ request.GET.apellido_estudiante }}">
+                        <input type="text" name="email_estudiante" placeholder="Enter email name" value="{{ request.GET.email_estudiante }}">
+                        <button type="submit">Create Student</button>
+                    </form>
+                    
+                    {% if mensaje %}
+                        <p>{{ mensaje }}</p>
+                    {% endif %}
+        </div>
+    </div>
+    </section>
+    <!-- search section -->
+</body>
+{% endblock %}
+
+{% block links %}
+<div class="info_links">
+    <a class="" href="{% url 'inicio' %}">
+        <img src="images/nav-bullet.png" alt="">
+        Home
+    </a>
+    <a class="" href="{% url 'profesores' %}">
+        <img src="images/nav-bullet.png" alt="">
+        About
+    </a>
+    <a class="" href="{% url 'cursos' %}">
+        <img src="images/nav-bullet.png" alt="">
+        Services
+    </a>
+    <a class="" href="{% url 'precios' %}">
+        <img src="images/nav-bullet.png" alt="">
+        Pricing
+    </a>
+    <a class="active" href="{% url 'entregables' %}">
+        <img src="images/nav-bullet.png" alt="">
+        Contact Us
+    </a>
+    </div>
+{% endblock %}
+
+</html>

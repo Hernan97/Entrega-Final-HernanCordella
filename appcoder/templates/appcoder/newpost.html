@@ -1,0 +1,78 @@
+{% extends 'appcoder/baseblog.html' %}
+{% load static %}
+
+{% block contentblog %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Post</title>
+    <style>
+        .form-container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 100%
+        }
+        .form-container label {
+            display: block;
+            margin-bottom: 5px;
+            color: #333;
+        }
+        .form-container input[type="text"], 
+        .form-container textarea {
+            width: calc(100% - 22px);
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 2px solid #ff6600; /* Color naranja */
+            border-radius: 5px;
+            font-size: 16px;
+            color: #333;
+        }
+        .form-container textarea {
+            resize: vertical; /* Permite ajustar el tamaño vertical del área de texto */
+        }
+        .form-container button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #ff6600; /* Color naranja */
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .form-container button:hover {
+            background-color: #e55b00; /* Color naranja oscuro en hover */
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h1>Create a Post</h1>
+        <form method="post">
+            {% csrf_token %}
+            <label for="title">Title:</label>
+            <input type="text" id="title" name="title" placeholder="Enter the title" required>
+
+            <label for="introduction">Introduction:</label>
+            <textarea id="introduction" name="introduction" rows="3" placeholder="Enter an introduction" required></textarea>
+
+            <label for="content">Content:</label>
+            <textarea id="content" name="content" rows="5" placeholder="What's on your mind?" required></textarea>
+
+            <label for="image">Image:</label>
+            <input type="file" id="image" name="image">
+
+            <button type="submit">Post</button>
+        </form>
+    </div>
+</body>
+
+{% endblock contentblog %}
+</html>
+

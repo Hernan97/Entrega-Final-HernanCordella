@@ -1,0 +1,210 @@
+{% extends 'appcoder/baseblog.html' %}
+{% load static %}
+
+{% block viewpost %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ post.title }}</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 0.5em;
+        }
+        h2 {
+            font-size: 1.5em;
+            color: #555;
+            margin-bottom: 1em;
+        }
+        p {
+            font-size: 1em;
+            color: #333;
+            line-height: 1.8;
+            margin-bottom: 1.5em;
+        }
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 1em;
+            color: #fff;
+            background-color: #ff6f00;
+            border-radius: 5px;
+            text-decoration: none;
+            text-align: center;
+        }
+        .btn:hover {
+            background-color: #e65c00;
+        }
+        .date {
+            font-size: 0.9em;
+            color: #999;
+            margin-bottom: 1em;
+        }
+        .post-image {
+            float: left;  /* Flota la imagen a la izquierda del texto */
+            margin-right: 20px;  /* Espacio entre la imagen y el texto */
+            max-width: 300px;  /* Limitar el ancho de la imagen */
+        }
+        /* Estilo para la imagen fija en el centro */
+        .fixed-image {
+            position: left;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%); /* Centra la imagen tanto vertical como horizontalmente */
+            width: 150px; /* Ajusta el tamaño de la imagen según tus necesidades */
+            height: auto;
+            z-index: 10; /* Asegura que la imagen esté encima del contenido */
+        }
+        .image {
+            margin-right: 20px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="image">
+            <img src="{% static 'appcoder/assets/img/publicacion-ley-bases-y-paquete-fiscal.jpg'%}" alt="Descripción de la imagen" width="300">; <img src="{% static 'appcoder/assets/img/congreso-diputados.jpg'%}" alt="Descripción de la imagen" width="300">
+        </div>
+    <div class="container">
+        {% if post.image %}
+            <img src="{{ post.image.url }}" alt="Image for {{ post.title }}" class="post-image">
+        {% endif %}
+        <h1>{{ post.title }}</h1>
+        <p class="date">{{ post.created_at }}</p>
+        <h2>{{ post.introduction }}</h2>
+        <!-- Renderizar contenido HTML seguro -->
+        <div>{{ post.content|safe }}</div>
+        <a href="{% url 'blog' %}" class="btn">Back to list</a>
+    </div>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ post.title }}</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 0.5em;
+        }
+        h2 {
+            font-size: 1.5em;
+            color: #555;
+            margin-bottom: 1em;
+        }
+        p {
+            font-size: 1em;
+            color: #333;
+            line-height: 1.8;
+            margin-bottom: 1.5em;
+        }
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 1em;
+            color: #fff;
+            background-color: #ff6f00;
+            border-radius: 5px;
+            text-decoration: none;
+            text-align: center;
+        }
+        .btn:hover {
+            background-color: #e65c00;
+        }
+        .date {
+            font-size: 0.9em;
+            color: #999;
+            margin-bottom: 1em;
+        }
+        .post-image {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin-bottom: 1em;
+        }
+        .comments-section {
+            margin-top: 2em;
+            border-top: 1px solid #ddd;
+            padding-top: 1em;
+        }
+        .comment {
+            border-bottom: 1px solid #ddd;
+            padding: 1em 0;
+        }
+        .comment-content {
+            margin-bottom: 0.5em;
+        }
+        .rating {
+            font-size: 0.9em;
+            color: #ff6f00;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="comments-section">
+        <h3>Comments</h3>
+            {% for comment in comments %}
+                <div class="comment">
+                    <div class="rating">Rating: {{ comment.rating }} Star{{ comment.rating|pluralize }}</div>
+                    <div class="comment-content">{{ comment.content }}</div>
+                    <p><small>By {{ comment.author.username }} on {{ comment.created_at }}</small></p>
+                </div>
+            {% empty %}
+                <p>No comments yet.</p>
+            {% endfor %}
+
+            {% if user.is_authenticated %}
+                <h3>Add a Comment</h3>
+                <form method="post">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <button type="submit" class="btn">Submit Comment</button>
+                </form>
+            {% else %}
+                <p><a href="{% url 'login' %}">Log in</a> to leave a comment.</p>
+            {% endif %}
+        </div>
+    </div>
+</body>
+</html>
+
+{% endblock viewpost %}
+</html>

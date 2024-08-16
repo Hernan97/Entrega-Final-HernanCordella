@@ -1,0 +1,108 @@
+{% extends 'appcoder/baseblog.html' %}
+{% load static %}
+
+<!-- profile.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+    <link href="{% static 'appcoder/css/profile.css' %}" rel="stylesheet" />
+</head>
+
+{% block profile %}
+<body>
+    <!-- Custom styles for this template -->
+    <link href="{% static 'appcoder/css/profile.css' %}" rel="stylesheet" />
+    <section class="section about-section gray-bg" id="about">
+        <div class="container">
+            <div class="row align-items-center flex-row-reverse">
+                <div class="col-lg-6">
+                    <div class="about-text go-to">
+                        <div class="row about-list">
+                            <div class="col-md-6">
+                                <div class="media">
+                                    <label>Birthday</label>
+                                    <p>{{ form.birth_date.value }}</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="media">
+                                    <label>E-mail</label>
+                                    <p>{{ form.email.value }}</p>
+                                </div>
+                                <div class="media">
+                                    <label> Name</label> 
+                                    <label>Last Name</label>
+                                    <p> {{ request.user.username }}</p>
+                                    <p> {{ form.last_name.value }}</p>
+                                </div>
+                                <div class="media">
+                                    <label>Profession</label>
+                                    <p> {{ form.profession.value }} </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="about-avatar">
+                        {% if form.avatar.value %}
+                            <p><strong></strong></p>
+                                <img src="{{ form.avatar.value.url }}" alt="Avatar" style="width:500px;height:500px;">
+                        {% else %}
+                            <p>No avatar set.</p>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="btnsection">
+            <script src="{% static 'appcoder/js/scripts.js' %}"></script>
+            <!-- Botón para desplegar la sección de edición -->
+            <button class="btn btn-edit" onclick="toggleEditSection()">Edit Profile</button>
+            <!-- Sección que se despliega y oculta -->
+            <div id="editSection" class="edit-section">
+                <p>Aquí puedes colocar el formulario o contenido que deseas desplegar.</p>
+                <!-- Ejemplo de formulario -->
+                <form method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <button type="submit" class="btn btn-submit">Save Changes</button>
+                </form>
+            </div>
+        <!-- Botón para desplegar la sección de edición -->
+        <!-- Enlace para cerrar sesión -->
+            <a href="{% url 'login' %}" class="btn btn-logout">Logout</a>
+        </div>
+        </div>
+    </section>
+    <!-- Sección de posts modernizada -->
+        <div class="posts-section">
+            <h2>Tus Posts</h2>
+            <div class="posts-list">
+                {% for post in posts %}
+                    <div class="post-card">
+                        <h3>{{ post.title }}</h3>
+                        <p class="post-date">{{ post.created_at|date:"d M Y" }}</p>
+                        <div class="post-actions">
+                            <a href="{% url 'edit_post' post.id %}" class="btn btn-secondary">Editar</a>
+                            <a href="{% url 'delete_post' post.id %}" class="btn btn-danger">Eliminar</a>
+                        </div>
+                    </div>
+                {% empty %}
+                    <p class="no-posts">No has creado ningún post todavía.</p>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</body>
+{% endblock profile %}
+
+
+</html>

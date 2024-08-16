@@ -1,0 +1,165 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  <!-- Basic -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- Mobile Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <!-- Site Metas -->
+  <link rel="icon" href="{% static 'appcoder/assets/favicon-16x16.ico' %}" type="image/gif" />
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+
+  <title>
+    {% block title %} 
+
+    {% endblock %}
+  </title>
+
+  <!-- bootstrap core css -->
+  <link rel="stylesheet" type="text/css" href="{% static 'appcoder/css/bootstrap.css' %}" />
+  <!-- fonts style -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <!-- font awesome style -->
+  <link href="{% static 'appcoder/css/font-awesome.min.css' %}" rel="stylesheet" />
+  <!-- Custom styles for this template -->
+  <link href="{% static 'appcoder/css/style.css' %}" rel="stylesheet" />
+  <!-- responsive style -->
+  <link href="{% static 'appcoder/css/responsive.css' %}" rel="stylesheet" />
+</head>
+
+<body>
+  <div class="hero_area">
+    <!-- header section strats -->
+    <header class="header_section">
+      <div class="container-fluid">
+        <nav class="navbar navbar-expand-lg custom_nav-container ">
+          <a class="navbar-brand" href="{% url 'inicio' %}">
+            <span>S&H</span>
+          </a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class=""> </span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav  ml-auto">
+              <li class="nav-item active">
+                <a class="nav-link" href="{% url 'inicio' %}">Home <span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'profesores' %}"> About</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'cursos' %}">Services</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'precios' %}">Pricing</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'login' %}">Blog</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'user_register' %}">Register</a>
+              </li>
+            </ul>
+        </nav>
+      </div>
+    </header>
+    <!-- end header section -->
+    {% block content %}
+    {% endblock %}
+    {% block register %}
+    {% endblock register %}
+
+<!-- info section -->
+<section class="info_section layout_padding2">
+  <div class="container">
+  <div class="row">
+      <div class="col-md-3">
+      <div class="info_contact">
+          <h4>
+          Address
+          </h4>
+          <div class="contact_link_box">
+          <a href="https://www.google.com/maps/place/Lomas+de+Zamora,+Provincia+de+Buenos+Aires/@-34.7649373,-58.5022431,12z/data=!3m1!4b1!4m6!3m5!1s0x95bcd261abf8fb75:0xd3b4119f62723032!8m2!3d-34.7611823!4d-58.4302476!16zL20vMDM2eWpt?entry=ttu">
+              <i class="fa fa-map-marker" aria-hidden="true"></i>
+              <span>
+              Location
+              </span>
+          </a>
+          <a href="https://wa.me/+5491122526091?text=Hola%2C%20tengo%20una%20consulta%20sobre%20su%20servicio.">
+              <i class="fa fa-phone" aria-hidden="true"></i>
+              <span>
+              Call +54 9 11 22526091
+              </span>
+          </a>
+          <a href="https://accounts.google.com/v3/signin/identifier?continue=https%3A%2F%2Fmail.google.com%2Fmail%2F&ifkv=Ab5oB3ri_qDXysHoD4-YeJHmncVLuZgtxQ-Jhql6bPGYKcfnFqvuxQMYsC4aPFq_fXdI67a6xYhIKw&rip=1&sacu=1&service=mail&flowName=GlifWebSignIn&flowEntry=ServiceLogin&dsh=S-14699046%3A1723741270329838&ddm=0">
+              <i class="fa fa-envelope" aria-hidden="true"></i>
+              <span>
+              S&H@gmail.com
+              </span>
+          </a>
+          </div>
+      </div>
+      <div class="info_social">
+          <a href="{% url 'workingpage2' %}">
+          <i class="fa fa-facebook" aria-hidden="true"></i>
+          </a>
+          <a href="https://wa.me/+5491122526091?text=Hola%2C%20tengo%20una%20consulta%20sobre%20su%20servicio." target="_blank">
+          <i class="fa fa-whatsapp" aria-hidden="true"></i>
+          </a>
+          <a href="{% url 'workingpage2' %}">
+          <i class="fa fa-linkedin" aria-hidden="true"></i>
+          </a>
+          <a href="{% url 'workingpage2' %}">
+          <i class="fa fa-instagram" aria-hidden="true"></i>
+          </a>
+      </div>
+      </div>
+      <div class="col-md-3">
+      <div class="info_link_box">
+          <h4>
+          Links
+          </h4>
+          {% block links %}
+
+          {% endblock %}
+      </div>
+      </div>
+      <div class="col-md-3">
+      <div class="info_detail">
+      </div>
+      </div>
+      <div class="col-md-3 mb-0">
+      </div>
+  </div>
+  </div>
+</section>
+<!-- end info section -->
+
+  <!-- footer section -->
+  <footer class="footer_section">
+    <div class="container">
+      <p>
+        &copy; <span id="displayYear"></span> All Rights Reserved By
+        <a href="">S&H</a>
+      </p>
+    </div>
+  </footer>
+  <!-- footer section -->
+
+  <!-- jQery -->
+  <script src="{% static 'appcoder/js/jquery-3.4.1.min.js' %}"></script>
+  <!-- bootstrap js -->
+  <script src="{% static 'appcoder/js/bootstrap.js' %}"></script>
+  <!-- custom js -->
+  <script src="{% static 'appcoder/js/custom.js' %}"></script>
+
+
+</body>
+
+</html>

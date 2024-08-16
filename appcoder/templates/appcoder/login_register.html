@@ -1,0 +1,133 @@
+{% extends 'appcoder/base.html' %}
+
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>
+        {% block title %}    
+            S&H/ Login-Register
+        {% endblock %}
+    </title>
+</head>
+
+
+{% block content %}
+<head>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #f0f0f0, #d9d9d9);
+      color: black;
+      margin: 0;
+    }
+
+    .container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .box {
+      background-color: #ffffff;
+      border-radius: 15px;
+      padding: 30px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      margin: 20px;
+      width: 350px;
+    }
+
+    .box h1 {
+      font-size: 24px;
+      font-weight: 600;
+      margin-bottom: 20px;
+      color: black;
+    }
+
+    .box form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .box input[type="text"],
+    .box input[type="password"],
+    .box input[type="email"] {
+      background-color: #f0f0f0;
+      border: 1px solid #ccc;
+      padding: 12px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      color: #333;
+      font-size: 14px;
+    }
+
+    .box button {
+      background-color: #ff6600;
+      border: none;
+      padding: 15px;
+      border-radius: 8px;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .box button:hover {
+      background-color: #e55c00;
+    }
+
+    h1 {
+      color: white;
+      font-size: 50px;
+      margin-bottom: 1px;
+    }
+  </style>
+</head>
+
+<body>
+  <section class="service_section layout_padding">
+    <div class="container">
+      <div class="heading_container heading_center">
+        <h1>Mi User</h1>
+    <div class="container">
+      <div class="box">
+        <h1>LogIn</h1>
+        <form method="post">
+          {% csrf_token %}
+          {{ login_form.as_p }}
+          <button type="submit">LogIn</button>
+        </form>
+      </div>
+  </section>
+</body>
+  {% endblock %}
+
+  {% block links %}
+  <div class="info_links">
+      <a class="" href="{% url 'inicio' %}">
+          <img src="images/nav-bullet.png" alt="">
+          Home
+      </a>
+      <a class="" href="{% url 'profesores' %}">
+          <img src="images/nav-bullet.png" alt="">
+          About
+      </a>
+      <a class="" href="{% url 'cursos' %}">
+          <img src="images/nav-bullet.png" alt="">
+          Services
+      </a>
+      <a class="" href="{% url 'precios' %}">
+          <img src="images/nav-bullet.png" alt="">
+          Pricing
+      </a>
+      <a class="active" href="{% url 'blog' %}">
+          <img src="images/nav-bullet.png" alt="">
+          Blog
+      </a>
+      </div>
+  {% endblock %}
+  
+  </html>

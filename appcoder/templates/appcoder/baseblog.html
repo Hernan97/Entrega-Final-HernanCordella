@@ -1,0 +1,93 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Bloger</title>
+		<!-- Description, Keywords and Author -->
+		<meta name="description" content="Your description">
+		<meta name="keywords" content="Your,Keywords">
+		<meta name="author" content="ResponsiveWebInc">
+		
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		
+		<!-- Styles -->
+		<!-- Bootstrap CSS -->
+		<link href="{% static 'appcoder/css/bootstrap_blog.min.css' %}" rel="stylesheet">
+		<!-- Font awesome CSS -->
+		<link href="{% static 'appcoder/css/font-awesome_blog.min.css' %}" rel="stylesheet">		
+		<!-- Custom CSS -->
+		<link href="{% static 'appcoder/css/styleblog.css' %}" rel="stylesheet">
+		
+		<!-- Favicon -->
+		<link rel="shortcut icon" href="#">
+	</head>
+	
+	<body>
+	
+		<div class="wrapper">
+		
+			<!-- header -->
+			<header>
+				<!-- navigation -->
+				<nav class="navbar navbar-default" role="navigation">
+					<div class="container">
+						<!-- Brand and toggle get grouped for better mobile display -->
+						<div class="navbar-header">
+							<a class="navbar-brand" href="{% url 'blog' %}"><img class="img-responsive" src="{% static 'appcoder/assets/img/shlogo.jpg' %}" alt="Logo" /></a>
+						</div>
+						<!-- Collect the nav links, forms, and other content for toggling -->
+						<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+							<ul class="nav navbar-nav navbar-right">
+								<li><a href="{% url 'newpost' %}">Create New Post</a></li>
+								<li><a href="{% url 'profile' %}">Profile</a></li>
+								<li><a href="{% url 'workingpage' %}">Chat</a></li>
+							</ul>
+						</div><!-- /.navbar-collapse -->
+					</div><!-- /.container-fluid -->
+				</nav>
+			</header>
+			
+{% block contentblog %}
+{% endblock %}
+{% block profile %}
+{% endblock profile %}
+{% block deletepost %}
+{% endblock deletepost %}
+{% block editpost %}
+{% endblock editpost %}
+{% block viewpost %}
+{% endblock viewpost %}
+			<!-- footer -->
+			<footer>
+				<div class="container">
+					<p><a href="{% url 'blog' %}">Home</a> | <a href="{% url 'newpost' %}">New Post</a> | <a href="{% url 'profile' %}">Profile</a> | <a href="#contact">Contact</a></p>
+					<div class="social">
+						<a href="{% url 'workingpage' %}"><i class="fa fa-facebook"></i></a>
+						<a href="{% url 'workingpage' %}"><i class="fa fa-twitter"></i></a>
+						<a href="{% url 'workingpage' %}"><i class="fa fa-dribbble"></i></a>
+						<a href="{% url 'workingpage' %}"><i class="fa fa-linkedin"></i></a>
+						<a href="{% url 'workingpage' %}"><i class="fa fa-google-plus"></i></a>
+					</div>
+					<!-- copy right -->
+					<!-- This theme comes under Creative Commons Attribution 4.0 Unported. So don't remove below link back -->
+					<p class="copy-right">Copyright &copy; 2024 <a href="#">S&H</a> | Designed By : Hernan J.Cordella, All rights reserved. </p>
+				</div>
+			</footer>
+		</div>
+		
+		
+		<!-- Javascript files -->
+		<!-- jQuery -->
+		<script src="js/jquery.js"></script>
+		<!-- Bootstrap JS -->
+		<script src="js/bootstrap.min.js"></script>
+		<!-- Respond JS for IE8 -->
+		<script src="js/respond.min.js"></script>
+		<!-- HTML5 Support for IE -->
+		<script src="js/html5shiv.js"></script>
+		<!-- Custom JS -->
+		<script src="js/custom.js"></script>
+	</body>	
+</html>

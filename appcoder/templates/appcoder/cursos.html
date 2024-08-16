@@ -1,0 +1,181 @@
+{% extends 'appcoder/base.html' %}
+
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>
+        {% block title %}    
+            S&H/ Services
+        {% endblock %}
+    </title>
+</head>
+
+{% block content %}
+<body class="sub_page">
+  <!-- service section -->
+  <section class="service_section layout_padding" ; style="background-color: #FFFFFF;">
+    <div class="container">
+      <div class="heading_container heading_center">
+        <h2>
+          Our Services
+        </h2>
+      </div>
+    </div>
+    <div class="container ">
+      <div class="row">
+        <div class="col-md-6 col-lg-4">
+          <div class="box ">
+            <div class="img-box">
+              <img src="{% static 'appcoder/assets/imgimages/s1.png' %}" alt="">
+            </div>
+            <div class="detail-box">
+              <h4>
+                Asesoramiento Contable
+              </h4>
+              <p>
+                .
+              </p>
+              <a href="{% url 'precios' %}">
+                Read More
+                <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="box ">
+            <div class="img-box">
+              <img src="images/s2.png" alt="">
+            </div>
+            <div class="detail-box">
+              <h4>
+                Asesoramiento Impositivo
+              </h4>
+              <p>
+                .
+              </p>
+              <a href="{% url 'precios' %}">
+                Read More
+                <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4 ">
+          <div class="box ">
+            <div class="img-box">
+              <img src="images/s3.png" alt="">
+            </div>
+            <div class="detail-box">
+              <h4>
+                Contabilidad Agropecuaria
+              </h4>
+              <p>
+                .
+              </p>
+              <a href="{% url 'precios' %}">
+                Read More
+                <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="box ">
+            <div class="img-box">
+              <img src="images/s4.png" alt="">
+            </div>
+            <div class="detail-box">
+              <h4>
+                Asesoramiento Societario
+              </h4>
+              <p>
+                .
+              </p>
+              <a href="{% url 'precios' %}">
+                Read More
+                <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="box ">
+            <div class="img-box">
+              <img src="images/s5.png" alt="">
+            </div>
+            <div class="detail-box">
+              <h4>
+                Outsourncing Contable
+              </h4>
+              <p>
+                .
+              </p>
+              <a href="{% url 'precios' %}">
+                Read More
+                <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="box ">
+            <div class="img-box">
+              <img src="images/s6.png" alt="">
+            </div>
+            <div class="detail-box">
+              <h4>
+                Cursos Contables
+              </h4>
+              <p>
+                .
+              </p>
+              <a href="{% url 'precios' %}">
+                Read More
+                <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- end service section -->
+</body>
+  {% endblock %}
+
+  {% block links %}
+  <div class="info_links">
+      <a class="" href="{% url 'inicio' %}">
+          <img src="images/nav-bullet.png" alt="">
+          Home
+      </a>
+      <a class="" href="{% url 'profesores' %}">
+          <img src="images/nav-bullet.png" alt="">
+          About
+      </a>
+      <a class="active" href="{% url 'cursos' %}">
+          <img src="images/nav-bullet.png" alt="">
+          Services
+      </a>
+      <a class="" href="{% url 'precios' %}">
+          <img src="images/nav-bullet.png" alt="">
+          Pricing
+      </a>
+      <a class="" href="{% url 'login' %}">
+          <img src="images/nav-bullet.png" alt="">
+          Blog
+      </a>
+      </div>
+  {% endblock %}
+  
+  </html>

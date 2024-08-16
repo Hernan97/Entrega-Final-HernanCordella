@@ -1,0 +1,52 @@
+/* Estilo general */
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Estilo para el título del post */
+h1 {
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+/* Estilo para el contenido del post */
+p {
+    font-size: 1.2em;
+    line-height: 1.6;
+}
+
+/* Estilo para la sección de comentarios */
+.comments-section {
+    margin-top: 30px;
+}
+
+/* Estilo para el formulario de comentarios */
+.comment-form {
+    margin-top: 20px;
+}
+
+.comment-form form {
+    display: flex;
+    flex-direction: column;
+}
+
+.comment-form form button {
+    margin-top: 10px;
+}
+
+/* Estilo para el botón de regresar */
+.btn-back {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.btn-back:hover {
+    background-color: #0056b3;
+}

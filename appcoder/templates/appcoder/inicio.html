@@ -1,0 +1,130 @@
+{% extends 'appcoder/base.html' %}
+
+{% load static %}
+
+<head>
+<title>
+    {% block title %}    
+        S&H
+    {% endblock %}
+</title>
+</head>
+
+<body>
+{% block content %}
+    <!-- slider section -->
+    <section class="slider_section ">
+        <div id="customCarousel1" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+            <div class="carousel-item active">
+                <div class="container ">
+                <div class="row">
+                    <div class="col-md-6">
+                    <div class="detail-box">
+                        <h1>
+                        Tu Contador Virtual <br>
+                        LLeva al día tu negocio 
+                        </h1>
+                        <p>
+                        En SH & Asociados ofrecemos servicios contables de excelencia, adaptados a las necesidades de cada negocio e industria.
+                        En nuestro estudio contable impositivo contamos con un equipo de profesionales comprometidos con la contabilidad y los servicios financieros, eso nos inspira a estar a la vanguardia para anticiparnos a los desafíos que enfrentan las empresas en el entorno tributario argentino.
+                        Nuestra misión es brindar soluciones contables confiables y efectivas, para eso contamos con un enfoque personalizado, orientado a maximizar el rendimiento de su negocio. Nuestra trayectoria y experiencia profesional avalan nuestro compromiso.
+                        Lo invitamos a conocer nuestro estudio contable y optimizar su contabilidad de la mano de un equipo de confianza.</p>
+                        <div class="btn-box">
+                        <a href="{% url 'profesores' %}" class="btn-1">
+                            Read More
+                        </a>
+                        <a href="https://wa.me/+5491122526091?text=Hola%2C%20tengo%20una%20consulta%20sobre%20su%20servicio." class="btn-2">
+                            Contact Us
+                        </a>
+                        </div>
+                    </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class=" col-lg-10 mx-auto">
+                            <img src="{% static 'appcoder/assets/img/slider-img.png' %}" alt="">
+                        </div>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+            
+            <div class="carousel_btn-box">
+            <a class="carousel-control-prev" href="#customCarousel1" role="button" data-slide="prev">
+                <i class="fa fa-angle-left" aria-hidden="true"></i>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#customCarousel1" role="button" data-slide="next">
+                <i class="fa fa-angle-right" aria-hidden="true"></i>
+                <span class="sr-only">Next</span>
+            </a>
+            </div>
+        </div>
+        </section>
+        <!-- end slider section -->
+    </div>
+    <!-- server section -->
+    <section class="server_section">
+        <div class="container ">
+        <div class="row">
+            <div class="col-md-6">
+            <div class="img-box">
+                <img src="images/server-img.jpg" alt="">
+                <div class="play_btn">
+                <button>
+                    <i class="fa fa-play" aria-hidden="true"></i>
+                </button>
+                </div>
+            </div>
+            </div>
+            <div class="col-md-6">
+            <div class="detail-box">
+                <div class="heading_container">
+                <h2>
+                    Let us manage your Finance
+                </h2>
+                <p>
+                    Las finanzas juegan un papel fundamental en atraer compradores porque aseguran que una empresa opere de manera eficiente y estable. Una gestión financiera sólida permite ofrecer precios competitivos, mantener la calidad de los productos o servicios y proporcionar promociones atractivas. Además, una empresa con buena salud financiera puede invertir en marketing y en mejorar la experiencia del cliente, lo que genera confianza y aumenta el interés de los compradores. En resumen, una sólida estrategia financiera no solo optimiza los recursos, sino que también fortalece la percepción positiva de la empresa, atrayendo así a más clientes.
+                </p>
+                </div>
+                <a href="{% url 'profesores' %}">
+                Read More
+                </a>
+            </div>
+            </div>
+        </div>
+        </div>
+    </section>
+    <!-- end server section -->
+</body>
+{% endblock %}
+
+{% block links %}
+<div class="info_links">
+    <a class="active" href="{% url 'inicio' %}">
+        <img src="images/nav-bullet.png" alt="">
+        Home
+    </a>
+    <a class="" href="{% url 'profesores' %}">
+        <img src="images/nav-bullet.png" alt="">
+        About
+    </a>
+    <a class="" href="{% url 'cursos' %}">
+        <img src="images/nav-bullet.png" alt="">
+        Services
+    </a>
+    <a class="" href="{% url 'precios' %}">
+        <img src="images/nav-bullet.png" alt="">
+        Pricing
+    </a>
+    <a class="" href="{% url 'login' %}">
+        <img src="images/nav-bullet.png" alt="">
+        Blog
+    </a>
+    </div>
+{% endblock %}
+
+
+</html>

@@ -1,0 +1,197 @@
+{% extends 'appcoder/base.html' %}
+
+{% load static %}
+
+<head>
+<title>
+    {% block title %}    
+      S&H/Pricing
+    {% endblock %}
+</title>
+</head>
+
+{% block content %}
+<body class="sub_page"> 
+  <!-- price section -->
+  <section class="price_section layout_padding"; style="background-color: #FFFFFF;">
+    <div class="container">
+      <div class="heading_container heading_center">
+        <h2>
+          Our Pricing
+        </h2>
+      </div>
+      <div class="price_container ">
+        <div class="box">
+          <div class="detail-box">
+            <h2>$ <span>-</span></h2>
+            <h6>
+              Servicios Contables y Financieros
+            </h6>
+            <ul class="price_features">
+              <li>
+                No brindamos presupuesto general para los servicios indicados por este medio.
+              </li>
+              <li>
+                Cada cliente es especial y con diferentes necesidades.
+              </li>
+              <li>
+                Es por eso que adaptamos el presupuesto a las necesidades particulares.
+              </li>
+              <li>
+                Solicitelo mediante una cita virtual.
+              </li>
+              <li>
+                Contactanos por Whatsapp o Email.
+              </li>
+              <li>
+                .
+              </li>
+            </ul>
+          </div>
+          <div class="btn-box">
+            <a href="https://wa.me/+5491122526091?text=Hola%2C%20tengo%20una%20consulta%20sobre%20los%20servicios%20contables%20y%20financieros%20para%20Pequeñas/Medianas/Grandes%20empresas." target="_blank">>
+              See Detail
+            </a>
+          </div>
+        </div>
+        <div class="box">
+          <div class="detail-box">
+            <h2>$ <span>20.000</span></h2>
+            <h6>
+              Curso Tango Software - Contable
+            </h6>
+            <ul class="price_features">
+              <li>
+                Clases Virtuales Grabadas 15 - Duracion 1 hs
+              </li>
+              <li>
+                Modulos de Contable
+              </li>
+              <li>
+                Unidad 1 - Consideraciones Previas
+              </li>
+              <li>
+                Unidad 2 - Definición de Cuentas
+              </li>
+              <li>
+                Unidad 3 - Ingreso de Asientos
+              </li>
+              <li>
+                Unidad 4 - Integración Contable
+              </li>
+            </ul>
+          </div>
+          <div class="btn-box">
+            <a href="https://wa.me/+5491122526091?text=Hola%2C%20tengo%20una%20consulta%20sobre%20el%20curso%20de%20Tango%20Software%20que%20se%20profundiza%20el%20modulo%20de%20registraciones%20contables." target="_blank">>
+              See Detail
+            </a>
+          </div>
+        </div>
+        <div class="box">
+          <div class="detail-box">
+            <h2>$ <span>30.000</span></h2>
+            <h6>
+              Asesor de Inversiones
+            </h6>
+            <ul class="price_features">
+              <li>
+                Inversiones Bursátiles (bonos, acciones, etfs, opciones, análisis técnico introductorio calendario economico, adm de carteras.)
+              </li>
+              <li>
+                Trading de Derivados (Forex, futuros, CFDs, Monedas Virtuales, Opciones. Análisis Técnico avanzado, simulación de operatoria, Behavioral Finance, Psicología del Trading)
+              </li>
+              <li>
+                Análisis Fundamental y planificación financiera (Matemática Financiera, decisiones de Inversión, análisis de Estados Contables, valuación de Empresas y Múltiplos, DCM y DDM, planificación Fiscal)
+              </li>
+              <li>
+                Practicas de Mercado
+              </li>
+              <li>
+                .
+              </li>
+              <li>
+                .
+              </li>
+            </ul>
+          </div>
+          <div class="btn-box">
+            <a href="https://wa.me/+5491122526091?text=Hola%2C%20tengo%20una%20consulta%20sobre%20el%20curso%20de%20Asesor%20de%20Inversiones." target="_blank">>
+              See Detail
+            </a>
+          </div>
+        </div>
+        <div class="box">
+          <div class="detail-box">
+              <h2>$ <span>40.000</span></h2>
+              <h6>
+                Curso Tango Software - Sueldos
+              </h6>
+              <ul class="price_features">
+              <li>
+                Unidad 1 - Administrador General
+              </li>
+              <li>
+                Unidad 2 - Definiciones Previas y Alta de Legajos
+              </li>
+              <li>
+                Unidad 3 - Determinación del sueldo
+              </li>
+              <li>
+                Unidad 4 - Variables, Conceptos y Fórmulas
+              </li>
+              <li>
+                Unidad 5 - Definición y Actualización de Novedades
+              </li>
+              <li>
+                Unidad 6 - Liquidación y Emisión de Recibo
+              </li>
+              <li>
+                Unidad 7 - Impuesto a las Ganancias
+              </li>
+              <li>
+                Unidad 8 - Procesos Posteriores a la liquidación
+              </li>
+              <li>
+                Unidad 9 - Parametrización e integración contable
+              </li>
+            </ul>
+          </div>
+          <div class="btn-box">
+            <a href="https://wa.me/+5491122526091?text=Hola%2C%20tengo%20una%20consulta%20sobre%20el%20curso%20Tango%20Software%20donde%20se%20profundiza%20el%20modulo%20sueldos." target="_blank">>
+              See Detail
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- price section -->
+</body>
+{% endblock %}
+
+{% block links %}
+<div class="info_links">
+  <a class="" href="{% url 'inicio' %}">
+      <img src="images/nav-bullet.png" alt="">
+      Home
+  </a>
+  <a class="" href="{% url 'profesores' %}">
+      <img src="images/nav-bullet.png" alt="">
+      About
+  </a>
+  <a class="" href="{% url 'cursos' %}">
+      <img src="images/nav-bullet.png" alt="">
+      Services
+  </a>
+  <a class="active" href="{% url 'precios' %}">
+      <img src="images/nav-bullet.png" alt="">
+      Pricing
+  </a>
+  <a class="" href="{% url 'login' %}">
+    <img src="images/nav-bullet.png" alt="">
+    Blog
+  </a>
+  </div>
+{% endblock %}
+
+</html>

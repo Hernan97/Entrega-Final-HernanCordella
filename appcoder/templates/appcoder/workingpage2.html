@@ -1,0 +1,71 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página en Mantenimiento</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            background-image: url("{% static 'appcoder/assets/img/workingpage.jpg' %}");
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-attachment: fixed;
+            background-size: cover;
+            font-family: Arial, sans-serif;
+            color: #fff;
+        }
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            text-align: center;
+            background: rgba(0, 0, 0, 0.5); /* Opcional: agrega un fondo semitransparente para mejorar la legibilidad */
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        h1 {
+            font-size: 2em;
+            margin-bottom: 0.5em;
+        }
+        p {
+            font-size: 1.2em;
+        }
+        .button {
+            margin-top: 20px;
+            padding: 12px 24px;
+            font-size: 1.1em;
+            color: #fff;
+            background-color: #ff5722; /* Naranja moderno */
+            border: none;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra sutil */
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+        .button:hover {
+            background-color: #e64a19; /* Naranja más oscuro */
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Sombra más pronunciada al pasar el cursor */
+            transform: translateY(-2px); /* Efecto de elevación */
+        }
+        .button:active {
+            transform: translateY(0); /* Restablece la elevación cuando el botón se presiona */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div>
+            <h1>Página en Mantenimiento</h1>
+            <p>Estamos trabajando en esta página para que puedas acceder pronto.</p>
+            <a href="{% url 'inicio' %}" class="button">Home</a>
+        </div>
+    </div>
+</body>
+</html>

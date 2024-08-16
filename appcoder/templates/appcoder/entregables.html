@@ -1,0 +1,204 @@
+{% extends 'appcoder/base.html' %}
+
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>
+        {% block title %}    
+            S&H/ Search
+        {% endblock %}
+    </title>
+</head>
+
+{% block content %}
+<body class="sub_page"> 
+    <!-- search section -->
+    <section class="price_section layout_padding"; style="background-color: #FFFFFF;">
+        <div class="container">
+        <div class="heading_container heading_center">
+            <h1>
+                DataBase
+            </h1>
+            <h2 style="margin-top: 30px;">
+                Search for a course
+            </h2>
+            <form method="GET" action="{% url 'entregables' %}">
+                <input type="text" name="nombre_curso" placeholder="Enter course name" value="{{ request.GET.nombre_curso }}">
+                <button type="submit">Search Courses</button>
+            </form>
+            <!-- Listado de cursos -->
+            <head>
+                <meta charset="UTF-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <title>Buscar Cursos y Estudiantes</title>
+                <style>
+                    /* Estilos para la tabla de cursos */
+                    table {
+                        width: 100%;
+                        border-collapse: collapse;
+                        margin-top: 20px;
+                    }
+                    th, td {
+                        border: 2px solid black; /* Borde más grueso */
+                        padding: 12px; /* Espaciado interno mayor */
+                        text-align: left;
+                    }
+                    th {
+                        background-color: #007bff; /* Celeste para el encabezado */
+                        color: white; /* Letra blanca */
+                        font-weight: bold; /* Negrita en los encabezados */
+                    }
+                    td {
+                        background-color: #cce5ff; /* Celeste claro para las celdas */
+                        color: black; /* Letra negra para las celdas */
+                    }
+                    caption {
+                        font-size: 1.5em;
+                        margin-bottom: 10px;
+                        font-weight: bold;
+                    }
+                    table thead tr {
+                        border-bottom: 2px solid black; /* Borde inferior en el encabezado */
+                    }
+                    table tbody tr:nth-child(even) {
+                        background-color: #e6f7ff; /* Fondo alterno para mejorar la legibilidad */
+                    }
+                    table tbody tr:hover {
+                        background-color: #b3d9ff; /* Fondo al pasar el ratón */
+                    }
+                </style>
+                </head>
+                {% if request.GET.nombre_curso and cursos %}
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Comision</th>
+                                <th>Profesor</th>
+                                <!-- Puedes agregar más encabezados si es necesario -->
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for curso in cursos %}
+                                <tr>
+                                    <td>{{ curso.nombre }}</td>
+                                    <td>{{ curso.comision }}</td>
+                                    <td>{{ curso.profesor }}</td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                {% elif no_course_found %}
+                    <p>No course found. Try again.</p>
+                {% endif %}
+            <h2 style="margin-top: 50px;">
+                Search students
+            </h2>
+            <form method="GET" action="{% url 'entregables' %}">
+                <input type="text" name="nombre_estudiante" placeholder="Enter students name" value="{{ request.GET.nombre_estudiante }}">
+                <button type="submit">Search Students</button>
+            </form>
+            <!-- Listado de estudiantes -->
+            <head>
+                <meta charset="UTF-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <title>Buscar Cursos y Estudiantes</title>
+                <style>
+                    /* Estilos para la tabla de estudiantes */
+                    table {
+                        width: 100%;
+                        border-collapse: collapse;
+                        margin-top: 20px;
+                    }
+                    th, td {
+                        border: 2px solid black; /* Borde más grueso */
+                        padding: 12px; /* Espaciado interno mayor */
+                        text-align: left;
+                    }
+                    th {
+                        background-color: #007bff; /* Celeste para el encabezado */
+                        color: white; /* Letra blanca */
+                        font-weight: bold; /* Negrita en los encabezados */
+                    }
+                    td {
+                        background-color: #cce5ff; /* Celeste claro para las celdas */
+                        color: black; /* Letra negra para las celdas */
+                    }
+                    caption {
+                        font-size: 1.5em;
+                        margin-bottom: 10px;
+                        font-weight: bold;
+                    }
+                    table thead tr {
+                        border-bottom: 2px solid black; /* Borde inferior en el encabezado */
+                    }
+                    table tbody tr:nth-child(even) {
+                        background-color: #e6f7ff; /* Fondo alterno para mejorar la legibilidad */
+                    }
+                    table tbody tr:hover {
+                        background-color: #b3d9ff; /* Fondo al pasar el ratón */
+                    }
+                </style>
+                </head>
+                {% if request.GET.nombre_estudiante and estudiantes %}
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Surname</th>
+                                <th>Course</th>
+                                <th>Email</th>
+                                <th>Profesor</th>
+                                <!-- Puedes agregar más encabezados si es necesario -->
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for estudiante in estudiantes %}
+                                <tr>
+                                    <td>{{ estudiante.nombre }}</td>
+                                    <td>{{ estudiante.apellido }}</td>
+                                    <td>{{ estudiante.course }}</td>
+                                    <td>{{ estudiante.email }}</td>
+                                    <td>{{ estudiante.profesor }}</td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                {% elif no_students_found %}
+                    <p>No students found. Try again.</p>
+                {% endif %}
+        </div>
+    </div>
+    </section>
+    <!-- search section -->
+</body>
+{% endblock %}
+
+{% block links %}
+<div class="info_links">
+    <a class="" href="{% url 'inicio' %}">
+        <img src="images/nav-bullet.png" alt="">
+        Home
+    </a>
+    <a class="" href="{% url 'profesores' %}">
+        <img src="images/nav-bullet.png" alt="">
+        About
+    </a>
+    <a class="" href="{% url 'cursos' %}">
+        <img src="images/nav-bullet.png" alt="">
+        Services
+    </a>
+    <a class="" href="{% url 'precios' %}">
+        <img src="images/nav-bullet.png" alt="">
+        Pricing
+    </a>
+    <a class="active" href="{% url 'entregables' %}">
+        <img src="images/nav-bullet.png" alt="">
+        Contact Us
+    </a>
+    </div>
+{% endblock %}
+
+</html>
